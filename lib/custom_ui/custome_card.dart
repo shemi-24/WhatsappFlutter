@@ -33,10 +33,10 @@ class CustomCard extends StatelessWidget {
             subtitle: Row(
               children: [
                 Icon(
-                  Icons.done_all,size: ScreenUtil().setWidth(16),color: Colors.lightBlue,
+                  Icons.done_all,size: ScreenUtil().setWidth(20),color: Colors.lightBlue,
                 ),
                 SizedBox(width: ScreenUtil().setWidth(4),),
-                Text(chatModel.currentMessage,style: TextStyle(fontSize: ScreenUtil().setSp(16)),),
+                Text(chatModel.currentMessage,style: TextStyle(fontSize: ScreenUtil().setSp(18)),),
               ],
             ),
             trailing: Text(chatModel.time),
