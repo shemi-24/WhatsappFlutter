@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_flutter/pages/chat_screen.dart';
+import 'package:whatsapp_flutter/pages/select_contact.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -91,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         ),
         onPressed: (){
           print("pressed");
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectContact()));
         },
       ),
 

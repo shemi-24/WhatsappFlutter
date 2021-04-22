@@ -66,6 +66,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(widget.chatModel1.name,style: TextStyle(fontSize: ScreenUtil().setSp(22),fontWeight: FontWeight.bold),),
+            SizedBox(height: ScreenUtil().setHeight(4),),
             Text("Last seen today at 12:05pm",style: TextStyle(fontSize: ScreenUtil().setSp(13),fontWeight: FontWeight.normal),)
           ],
         ),
@@ -155,7 +156,11 @@ class _PersonalScreenState extends State<PersonalScreen> {
                                 suffixIcon: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    IconButton(icon: Icon(Icons.attach_file_sharp), onPressed: (){}),
+                                    IconButton(icon: Icon(Icons.attach_file_sharp), onPressed: (){
+                                      showModalBottomSheet(
+                                        backgroundColor: Colors.transparent,
+                                          context: context, builder: (builder)=>bottomSheet());
+                                    }),
                                     IconButton(icon: Icon(Icons.camera_alt), onPressed: (){}),
 
                                   ],
@@ -209,6 +214,79 @@ class _PersonalScreenState extends State<PersonalScreen> {
         });
 
     });
+  }
+
+
+  Widget bottomSheet(){
+    return Container(
+      height: ScreenUtil().setHeight(440),
+      width: MediaQuery.of(context).size.width,
+      child: Card(
+        margin: EdgeInsets.all(18),
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10),vertical: ScreenUtil().setWidth(20)),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  iconCreation(Icons.insert_drive_file,"Document",Colors.indigo),
+                  SizedBox(width: ScreenUtil().setWidth(40),),
+                  iconCreation(Icons.camera_alt,"Camera",Colors.pink),
+                  SizedBox(width: ScreenUtil().setWidth(40),),
+                  iconCreation(Icons.insert_photo,"Gallary",Colors.purple),
+
+                ],
+              ),
+              SizedBox(height: ScreenUtil().setHeight(30),),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  iconCreation(Icons.headset,"Audio",Colors.orange),
+                  SizedBox(width: ScreenUtil().setWidth(40),),
+                  iconCreation(FontAwesomeIcons.rupeeSign,"Payments",Color(0xff128c7e)),
+                  SizedBox(width: ScreenUtil().setWidth(40),),
+                  iconCreation(Icons.location_pin,"Location",Colors.teal),
+
+                ],
+              ),
+              SizedBox(height: ScreenUtil().setHeight(30),),
+              Padding(
+                padding:  EdgeInsets.only(left: ScreenUtil().setWidth(40)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    iconCreation(Icons.person,"Contact",Colors.blue),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget iconCreation(IconData iconData,String text,Color color){
+    return InkWell(
+      onTap: (){},
+
+      child: Column(
+        children: [
+         CircleAvatar(
+           backgroundColor: color,
+           radius: ScreenUtil().setWidth(30),
+           child: Icon(
+             iconData,
+             size: ScreenUtil().setWidth(29),
+             color: Colors.white,
+           ),
+         ),
+          SizedBox(height: ScreenUtil().setHeight(5),),
+          Text(text,style: TextStyle(fontSize: 12),),
+        ],
+      ),
+    );
   }
 
 
