@@ -8,16 +8,32 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  List<ChatModel> chats=[
+  List<ChatModel> chats = [
 
-    ChatModel("Skyewall", "assets/svgs/groups.svg", true, "20:02", "HI all"),
-    ChatModel("Shemeer", "assets/svgs/person.svg", false, "19:02", "hi da"),
-    ChatModel("fazil", "assets/svgs/person.svg", false, "19:02", "How are you"),
-    ChatModel("friends", "assets/svgs/groups.svg", true, "17:09", "HI all"),
-    ChatModel("Good", "assets/svgs/groups.svg", true, "16:02", "HI all"),
-    ChatModel("Krishnadas", "assets/svgs/person.svg", false, "13:02", "HI man"),
-    // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
-    // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
+    // ChatModel(name:"Skyewall", icon:"assets/svgs/groups.svg", isGroup:true,, name: '' time:"20:02", currentMessage:"HI all"),
+    // ChatModel(name:"Shemeer", icon:"assets/svgs/person.svg", isGroup:false, time:"19:02", currentMessage:"hi da"),
+    // ChatModel(name:"fazil", icon:"assets/svgs/person.svg", isGroup:false, time:"19:02", currentMessage:"How are you"),
+    // ChatModel(name:"friends", icon:"assets/svgs/groups.svg", isGroup:true, time:"17:09",currentMessage: "HI all"),
+    // ChatModel(name:"Good", icon:"assets/svgs/groups.svg", isGroup:true, time:"16:02", currentMessage:"HI all"),
+    // ChatModel(name:"Krishnadas", icon:"assets/svgs/person.svg", isGroup:false, time:"13:02", currentMessage:"HI man"),
+    // // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
+    // // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
+
+
+    ChatModel(name: "skyewall",icon:"assets/svgs/groups.svg", isGroup:true,time:"19:02", currentMessage: "Hiall"),
+    ChatModel(name:"Shemeer", icon:"assets/svgs/person.svg", isGroup:false, time:"19:02", currentMessage:"hi da"),
+    ChatModel(name:"fazil", icon:"assets/svgs/person.svg", isGroup:false, time:"19:02", currentMessage:"How are you"),
+    ChatModel(name:"friends", icon:"assets/svgs/groups.svg", isGroup:true, time:"17:09",currentMessage: "HI all"),
+    ChatModel(name:"Good", icon:"assets/svgs/groups.svg", isGroup:true, time:"16:02", currentMessage:"HI all"),
+    ChatModel(name:"Krishnadas", icon:"assets/svgs/person.svg", isGroup:false, time:"13:02", currentMessage:"HI man"),
+    // ChatModel(name: "skyewall",icon:"assets/svgs/groups.svg", isGroup:true,time:"19:02", currentMessage: "Hiall"),
+    // ChatModel(name: "skyewall",icon:"assets/svgs/groups.svg", isGroup:true,time:"19:02", currentMessage: "Hiall"),
+
+
+
+
+
+
 
   ];
 
@@ -28,15 +44,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
       scrollDirection: Axis.vertical,
       physics: BouncingScrollPhysics(),
-      itemBuilder: (BuildContext context, int index) { return CustomCard(chats[index]);},
+      itemBuilder: (BuildContext context, int index) {
+        return CustomCard(chats[index]);
+      },
       itemCount: chats.length,
 
-
-      // children: [
-      //   CustomCard(),
-      //   Divider(thickness: ScreenUtil().setWidth(2.5),indent: ScreenUtil().setWidth(45),endIndent: ScreenUtil().setWidth(20),),
-      //   CustomCard(),
-      // ],
     );
   }
 }

@@ -1,12 +1,14 @@
+import 'package:flutter/cupertino.dart';
+
 class ChatModel{
   String name;
   String icon;
   bool isGroup;
   String time;
   String currentMessage;
-  bool isSelected=false;
+  bool isSelected;
 
   ChatModel({
-  this.name, this.icon, this.isGroup, this.time, this.currentMessage,this.isSelected,
+  @required this.name,  this.icon, this.isGroup, this.time,@required  this.currentMessage,this.isSelected=false,
   });
 }

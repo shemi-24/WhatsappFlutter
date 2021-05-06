@@ -12,31 +12,18 @@ class _SelectContactState extends State<SelectContact> {
 
   List<ChatModel> chats=[
 
-    ChatModel(name:"Skyewall", icon:"assets/svgs/person.svg", true, "20:02", "Infromation Technology Company"),
-    ChatModel("Shemeer", "assets/svgs/person.svg", false, "19:02", "Software Developer"),
-    ChatModel("fazil", "assets/svgs/person.svg", false, "19:02", "Software Engineer"),
-    ChatModel("Boosiri", "assets/svgs/person.svg", true, "17:09", "CEO"),
-    ChatModel("Althaf", "assets/svgs/person.svg", true, "16:02", "CEO"),
-    ChatModel("Krishnadas", "assets/svgs/person.svg", false, "13:02", "Android Developer"),
-    ChatModel("Skyewall", "assets/svgs/person.svg", true, "20:02", "Infromation Technology Company"),
-    ChatModel("Shemeer", "assets/svgs/person.svg", false, "19:02", "Software Developer"),
-    ChatModel("fazil", "assets/svgs/person.svg", false, "19:02", "Software Engineer"),
-    ChatModel("Boosiri", "assets/svgs/person.svg", true, "17:09", "CEO"),
-    ChatModel("Althaf", "assets/svgs/person.svg", true, "16:02", "CEO"),
-    ChatModel("Krishnadas", "assets/svgs/person.svg", false, "13:02", "Android Developer"),
-
-    // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
-    // ChatModel("Skyewall", "groups.svg", true, "18:02", "HI all"),
+    ChatModel(name:"Shemeer", icon:"assets/svgs/person.svg",  currentMessage:"hi da"),
+    ChatModel(name:"fazil", icon:"assets/svgs/person.svg",  currentMessage:"How are you"),
+    ChatModel(name:"Krishnadas", icon:"assets/svgs/person.svg",  currentMessage:"HI man"),
 
   ];
-
 
 
 
   @override
   Widget build(BuildContext context) {
 
-    int _noOfContacts=chats.length-2;
+    int _noOfContacts=chats.length;
 
     return Scaffold(
       appBar: AppBar(
@@ -82,37 +69,32 @@ class _SelectContactState extends State<SelectContact> {
             physics: BouncingScrollPhysics(),
             itemBuilder:
                 (BuildContext context, int index) {
-              if(index==0){return buildRow(Icons.group,"New group");}
-              else if(index==1){return buildRow(Icons.person_add, "New contact");}
-              return InkWell(child: ContactCard(chats[index-2]),onTap: (){},);
+              if(index==0){return InkWell(child: buildRow(Icons.group,"New group"),onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateGroup()));},);}
+              else if(index==1){return InkWell(child: buildRow(Icons.person_add, "New contact"),onTap: (){},);}
+              return ContactCard(chats[index-2]);
               },
             itemCount: chats.length+2,
           ),
     );
   }
 
-  InkWell buildRow(IconData icon,String text) {
-    return InkWell(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateGroup()));
-      },
-      child: Padding(
-        padding:EdgeInsets.only(left: ScreenUtil().setWidth(20),top: ScreenUtil().setWidth(18)),
-        child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundColor: Color(0xff25d366),
-                    child: Icon(
-                      icon,
-                      color: Colors.white,
-                    ),
+  Widget buildRow(IconData icon,String text) {
+    return Padding(
+      padding:EdgeInsets.only(left: ScreenUtil().setWidth(20),top: ScreenUtil().setWidth(18)),
+      child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: Color(0xff25d366),
+                  child: Icon(
+                    icon,
+                    color: Colors.white,
                   ),
-                  SizedBox(width: ScreenUtil().setWidth(10),),
-                  Text(text,style: TextStyle(fontSize: ScreenUtil().setSp(20),fontWeight: FontWeight.bold),)
-                ],
-              ),
-      ),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(10),),
+                Text(text,style: TextStyle(fontSize: ScreenUtil().setSp(20),fontWeight: FontWeight.bold),)
+              ],
+            ),
     );
   }
 }

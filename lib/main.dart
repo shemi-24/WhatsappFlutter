@@ -1,13 +1,21 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:whatsapp_flutter/home_screen.dart';
+import 'package:whatsapp_flutter/pages/camera_screen.dart';
 
-void main() {
+
+
+
+Future<void> main() async {
   // SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
   // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
   //   statusBarColor: Colors.transparent,
   // ));
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras= await availableCameras();
   runApp(MyApp());
 }
 

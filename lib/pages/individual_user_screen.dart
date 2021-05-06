@@ -181,8 +181,9 @@ class _PersonalScreenState extends State<PersonalScreen> {
                             ),
                             onPressed: (){},
                           ):IconButton(
-                            icon: Icon(
-                              Icons.arrow_forward,
+                            icon: FaIcon(
+                              // Icons.arrow_forward,
+                              FontAwesomeIcons.paperPlane,
                               color: Colors.white,
                             ),
                             onPressed: (){},
